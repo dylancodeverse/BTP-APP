@@ -17,19 +17,11 @@
                     <span class="hide-menu">Pages</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/promotions/list" aria-expanded="false">
+                    <a class="sidebar-link" href="/utilisateur" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
-                        <span class="hide-menu">Promotions</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="/students/list" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-article"></i>
-                        </span>
-                        <span class="hide-menu">Students</span>
+                        <span class="hide-menu">utilisateur</span>
                     </a>
                 </li>
             </ul>
