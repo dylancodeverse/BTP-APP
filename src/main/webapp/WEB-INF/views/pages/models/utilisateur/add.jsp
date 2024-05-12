@@ -33,17 +33,18 @@
                                     <% 
                                     String var = ValidationHelper.sysout(request.getAttribute("def_sex")) ;
                                     if (var.equals("1"))
-                                        out.println(var); else out.println(""); %>
+                                        out.println("checked"); else out.println(""); %>
                                     >
                                     <label for="homme">homme</label>
 
                                     <input type="radio" name="sex" id="" value="2"
                                     <% 
-                                    String var = ValidationHelper.sysout(request.getAttribute("def_sex")) ;
                                     if (var.equals("2"))
-                                        out.println(var); else out.println(""); %>
+                                        out.println("checked"); else out.println(""); %>
                                     >
                                     <label for="homme">femme</label>
+
+                                    <p style="color:red"> <%= ValidationHelper.sysout(request.getAttribute("err_sex")) %> </p>
 
                                 </div>        
 
@@ -71,6 +72,7 @@
                                             }
                                         %>    
                                     </select>
+                                    <p style="color:red"> <%= ValidationHelper.sysout(request.getAttribute("err_department")) %> </p>
                                 </div>                                       
 
                                 <button type="submit" class="btn btn-primary">Add Promotion</button>
