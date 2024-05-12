@@ -77,7 +77,7 @@
 
                                 <button type="submit" class="btn btn-primary">Add Promotion</button>
                             </form>
-                            <a href="/promotions/list" class="mt-5">Back to List</a>
+                            <a href="/utilisateur/list" class="mt-5">Back to List</a>
                         </div>
                     </div>
                 </div>

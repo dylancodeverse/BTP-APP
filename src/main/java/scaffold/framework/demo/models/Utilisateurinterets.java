@@ -3,9 +3,11 @@ package scaffold.framework.demo.models;
 import java.sql.Connection;
 
 import orm.DynamicORM;
+import orm.annotations.Id;
 import orm.annotations.Ignore;
 
 public class Utilisateurinterets extends DynamicORM<Utilisateurinterets> {
+    @Id
     Integer id;
     Integer utilisateur;
     Integer interets;

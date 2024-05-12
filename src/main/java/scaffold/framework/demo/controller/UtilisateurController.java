@@ -9,9 +9,11 @@ import scaffold.framework.demo.FormHelper.ValidationHelper;
 import scaffold.framework.demo.config.ValidatorConfig;
 import scaffold.framework.demo.models.Department;
 import scaffold.framework.demo.models.Utilisateur;
+import scaffold.framework.demo.models.UtilisateurComplet;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UtilisateurController {
@@ -46,7 +48,7 @@ public class UtilisateurController {
     public String pageUpdate(@PathVariable Integer id, Model mode) throws Exception {
 
         Utilisateur user = new Utilisateur().selectWhere("id=" + id)[0];
-        mode.addAttribute("def_utilisateur", user.getId());
+        mode.addAttribute("def_utilisateur", user.getUtilisateur());
         mode.addAttribute("def_sex", user.getSex());
         mode.addAttribute("def_description", user.getDescription());
         mode.addAttribute("department", user.getDepartment());
@@ -81,13 +83,43 @@ public class UtilisateurController {
         if (!val.hasError()) {
             utilisateur2.setId(id);
             utilisateur2.updateById();
+            return "redirect:/utilisateur/list";
         }
-
-        System.out.println("ALIKA");
-
         model.addAttribute("dept", new Department().select());
-
         return "pages/models/utilisateur/edit";
+
+    }
+
+    @GetMapping("utilisateur/list")
+    public String pageListe(Model mode, Integer elementParPage, Integer pageNumber, String filtre) throws Exception {
+        if (elementParPage == null) {
+            elementParPage = 5;
+        }
+        if (pageNumber == null) {
+            pageNumber = 1;
+        }
+        mode.addAttribute("elementParPage", elementParPage);
+        mode.addAttribute("pageNumber", pageNumber);
+        mode.addAttribute("previous", pageNumber - 1);
+        mode.addAttribute("next", pageNumber + 1);
+
+        try {
+            if (filtre != null) {
+                mode.addAttribute("list", new UtilisateurComplet().selectPaginationSpecialQuery(
+                        "select * from UtilisateurComplet order by " + filtre, pageNumber, elementParPage));
+            } else {
+                mode.addAttribute("list", new UtilisateurComplet().selectPagination(pageNumber, elementParPage));
+            }
+
+        } catch (Exception e) {
+            mode.addAttribute("list", new UtilisateurComplet().selectPagination(1, 5));
+            mode.addAttribute("elementParPage", elementParPage);
+            mode.addAttribute("pageNumber", pageNumber);
+            mode.addAttribute("previous", 0);
+            mode.addAttribute("next", 2);
+            mode.addAttribute("error", e.getMessage());
+        }
+        return "pages/models/utilisateur/list";
 
     }
 

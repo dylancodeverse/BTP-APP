@@ -17,7 +17,7 @@
                     <span class="hide-menu">Pages</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/utilisateur" aria-expanded="false">
+                    <a class="sidebar-link" href="/utilisateur/list" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>

@@ -38,3 +38,8 @@ create view v_utilisateurinterets_complet as
 select utilisateurinterets.id  , interets.id as idinterets , interets.interets, utilisateur.id as idutilisateur, utilisateur.utilisateur from utilisateurinterets
 join utilisateur on utilisateurinterets.utilisateur = utilisateur.id 
 join interets on  interets.id = utilisateurinterets.interets ;
+
+create view utilisateurComplet as
+
+select utilisateur.* , department.dept from utilisateur
+join department on utilisateur.department = department.id ;

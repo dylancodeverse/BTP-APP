@@ -1,6 +1,7 @@
 package scaffold.framework.demo.models;
 
 import orm.DynamicORM;
+import orm.annotations.Id;
 import orm.annotations.Ignore;
 
 /**
@@ -8,6 +9,7 @@ import orm.annotations.Ignore;
  */
 public class Utilisateur extends DynamicORM<Utilisateur> {
 
+    @Id
     Integer id;
     String utilisateur;
     Integer sex;
