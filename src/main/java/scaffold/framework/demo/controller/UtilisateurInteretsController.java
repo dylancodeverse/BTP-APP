@@ -49,14 +49,17 @@ public class UtilisateurInteretsController {
         try {
             utilisateurinterets.setListInterets(interets);
         } catch (Exception e) {
-            model.addAttribute("err_interets", e.getCause());
+            System.out.println("tay be");
+            model.addAttribute("err_interets", e.getMessage());
             val.setHasError(true);
         }
 
         if (!val.hasError()) {
             Connection connection = dataSource.getConnection();
+            connection.setAutoCommit(false);
             try {
                 utilisateurinterets.insertAll(connection);
+                connection.commit();
             } catch (Exception e) {
                 throw e;
             } finally {

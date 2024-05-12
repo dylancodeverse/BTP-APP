@@ -3,11 +3,14 @@ package scaffold.framework.demo.models;
 import java.sql.Connection;
 
 import orm.DynamicORM;
+import orm.annotations.Ignore;
 
 public class Utilisateurinterets extends DynamicORM<Utilisateurinterets> {
     Integer id;
     Integer utilisateur;
     Integer interets;
+    
+    @Ignore
     Integer[] listInterets;
 
     public void setUtilisateur(String x) {
@@ -25,6 +28,8 @@ public class Utilisateurinterets extends DynamicORM<Utilisateurinterets> {
     }
 
     public void insertAll(Connection con) throws Exception {
+        
+
         for (int i = 0; i < listInterets.length; i++) {
             setInterets(listInterets[i]);
             try {

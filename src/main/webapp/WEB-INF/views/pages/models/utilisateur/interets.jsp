@@ -21,7 +21,9 @@
 
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Utilisateur:</label>
-                                    <select name="utilisateur" id="">
+                                    <select name="utilisateur" id=""
+                                    style="<%= ValidationHelper.sysout(request.getAttribute("css_utilisateur"))%>"
+                                    >
                                         <option value="">Choisir</option>
                                         <% Utilisateur[] users = (Utilisateur[]) request.getAttribute("utilisateur");
                                         for(Utilisateur user : users){ %>
@@ -30,6 +32,7 @@
                                         }
                                         %>
                                     </select>
+                                    <p style="color:red"> <%= ValidationHelper.sysout(request.getAttribute("err_utilisateur")) %> </p>
                                 </div>        
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Interets:</label>
@@ -42,6 +45,7 @@
                                     <%
                                         }
                                     %>
+                                    <p style="color:red"> <%= ValidationHelper.sysout(request.getAttribute("err_interets")) %>  </p>
                                 </div>        
 
 
