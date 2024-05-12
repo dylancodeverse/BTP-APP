@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import scaffold.framework.demo.FormHelper.ValidationHelper;
 import scaffold.framework.demo.config.ValidatorConfig;
+import scaffold.framework.demo.models.Department;
 import scaffold.framework.demo.models.Interets;
 import scaffold.framework.demo.models.Utilisateur;
 import scaffold.framework.demo.models.Utilisateurinterets;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import io.micrometer.common.lang.Nullable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class UtilisateurInteretsController {

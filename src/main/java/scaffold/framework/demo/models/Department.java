@@ -5,6 +5,18 @@ import orm.DynamicORM;
 public class Department extends DynamicORM<Department> {
     Integer id;
     String dept;
+    String checked;
+
+    public void setChecked() {
+        checked = "selected";
+    }
+
+    public String getChecked() {
+        if (checked == null) {
+            return "";
+        }
+        return checked;
+    }
 
     public Integer getId() {
         return id;

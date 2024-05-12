@@ -48,7 +48,10 @@ public class Utilisateur extends DynamicORM<Utilisateur> {
         return utilisateur;
     }
 
-    public void setUtilisateur(String utilisateur) {
+    public void setUtilisateur(String utilisateur) throws Exception {
+        if (utilisateur.isEmpty()) {
+            throw new Exception("champ obligatoire");
+        }
         this.utilisateur = utilisateur;
     }
 
