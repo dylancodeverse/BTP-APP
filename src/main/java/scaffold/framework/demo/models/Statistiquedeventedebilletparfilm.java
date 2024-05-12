@@ -1,5 +1,6 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class Statistiquedeventedebilletparfilm extends DynamicORM<Statistiquedev
         for (int i = 0; i < labels.length; i++) {
             labels[i] = fs[i].getFilms();
         }
-        return new JSONArray().toString();
+        return new JSONArray(labels).toString();
     }
 
     public String getJSONDATA(Statistiquedeventedebilletparfilm[] stats) {
@@ -38,9 +39,8 @@ public class Statistiquedeventedebilletparfilm extends DynamicORM<Statistiquedev
         int red = random.nextInt(256); // Valeur de rouge entre 0 et 255
         int green = random.nextInt(256); // Valeur de vert entre 0 et 255
         int blue = random.nextInt(256); // Valeur de bleu entre 0 et 255
-        float alpha = random.nextFloat(); // Valeur d'alpha entre 0.0 et 1.0
 
-        return String.format("rgba(%d, %d, %d, %.2f)", red, green, blue, alpha);
+        return String.format("rgba(%d, %d, %d)", red, green, blue);
     }
 
     public String getColor(Statistiquedeventedebilletparfilm[] stats) {
@@ -63,7 +63,7 @@ public class Statistiquedeventedebilletparfilm extends DynamicORM<Statistiquedev
         return nombredebilletvendu;
     }
 
-    public void setNombredebilletvendu(Integer nombredebilletvendu) {
-        this.nombredebilletvendu = nombredebilletvendu;
+    public void setNombredebilletvendu(BigDecimal nombredebilletvendu) {
+        this.nombredebilletvendu = nombredebilletvendu.intValue();
     }
 }

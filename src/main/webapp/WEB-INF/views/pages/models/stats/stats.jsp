@@ -20,9 +20,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title fw-semibold mb-4">Statistique de vente </h5>
-                        <div class="card w-100">
-                            
-
+                            <div style=" height:55vh; width:85vw">
+                                <canvas id="myChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,29 @@
     </div>
     <%@ include file="../../../templates/main-footer.jsp" %>
     <%@ include file="../../../templates/page-footer.jsp" %>
+    <script src="/static/assets/js/chart.umd.min.js"></script>
     <script>
-        
+
+    var xValues = <%=request.getAttribute("label") %>;
+    var yValues = <%=request.getAttribute("data") %>;
+    var barColors = <%=request.getAttribute("color") %>;
+
+    new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: true,
+            text: "World Wide Wine Production"
+            }
+        }
+        });    
     </script>
     
 </body>
