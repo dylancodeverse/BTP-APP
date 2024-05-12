@@ -27,7 +27,7 @@
                                         <option value="">Choisir</option>
                                         <% Utilisateur[] users = (Utilisateur[]) request.getAttribute("utilisateur");
                                         for(Utilisateur user : users){ %>
-                                            <option value="<%=user.getId()%>"> <%= user.getUtilisateur() %></option>
+                                            <option value="<%=user.getId()%>" <%=user.getChecked() %>> <%= user.getUtilisateur() %></option>
                                         <%    
                                         }
                                         %>

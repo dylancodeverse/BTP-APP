@@ -1,6 +1,7 @@
 package scaffold.framework.demo.models;
 
 import orm.DynamicORM;
+import orm.annotations.Ignore;
 
 /**
  * Utilisateur
@@ -12,6 +13,20 @@ public class Utilisateur extends DynamicORM<Utilisateur> {
     Integer sex;
     String description;
     Integer department;
+
+    @Ignore
+    private String checked;
+
+    public void setChecked() {
+        checked = "selected";
+    }
+
+    public String getChecked() {
+        if (checked == null) {
+            return "";
+        }
+        return checked;
+    }
 
     public void setSex(String x) {
         setSex(Integer.parseInt(x));

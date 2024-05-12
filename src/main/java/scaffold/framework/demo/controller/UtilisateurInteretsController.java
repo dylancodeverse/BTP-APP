@@ -40,6 +40,7 @@ public class UtilisateurInteretsController {
         Utilisateurinterets utilisateurinterets = new Utilisateurinterets();
         ValidationHelper val = ValidatorConfig.getValidationHelper();
         Interets[] interets2 = new Interets().select();
+        Utilisateur[] user2 = new Utilisateur().select();
         try {
             val.validate(utilisateurinterets, model, "utilisateur", utilisateur);
         } catch (Exception e) {
@@ -76,10 +77,17 @@ public class UtilisateurInteretsController {
                     }
                 }
             }
+            if (!utilisateur.isBlank()) {
+                for (int i = 0; i < user2.length; i++) {
+                    if (user2[i].getId() == Integer.parseInt(utilisateur)) {
+                        user2[i].setChecked();
+                    }
+                }
+            }
 
         }
 
-        model.addAttribute("utilisateur", new Utilisateur().select());
+        model.addAttribute("utilisateur", user2);
         model.addAttribute("interets", interets2);
 
         return "pages/models/utilisateur/interets";

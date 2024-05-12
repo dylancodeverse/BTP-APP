@@ -1,10 +1,12 @@
 package scaffold.framework.demo.models;
 
 import orm.DynamicORM;
+import orm.annotations.Ignore;
 
 public class Interets extends DynamicORM<Interets> {
     Integer id;
     String interets;
+    @Ignore
     private String checked;
 
     public void setChecked() {
