@@ -31,6 +31,10 @@ public class UtilisateurController {
         } catch (NoSuchMethodException | SecurityException e) {
             model.addAttribute("error", e.getCause());
         }
+        if (!val.hasError()) {
+            utilisateur2.insert();
+        }
+
         model.addAttribute("dept", new Department().select());
 
         return "pages/models/utilisateur/add";

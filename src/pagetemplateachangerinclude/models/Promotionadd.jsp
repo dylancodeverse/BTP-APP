@@ -1,6 +1,6 @@
-<%@ page import="java.util.List" %>
+<%@ page import="scaffold.framework.demo.models.*" %>
 
-<%@ page import="scaffold.framework.demo.entity.Promotion" %>
+<%@ page import="scaffold.framework.demo.FormHelper.*" %>
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
