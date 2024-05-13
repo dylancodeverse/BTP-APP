@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import scaffold.framework.demo.FormHelper.ValidationHelper;
@@ -44,9 +42,11 @@ public class LoginController {
                 }
             } else {
                 utilisateur.setId(users[0].getId());
+                utilisateur.setHierarchie(users[0].getHierarchie());
             }
             HttpSession session = request.getSession(true);
             session.setAttribute("id", utilisateur.getId());
+            session.setAttribute("hierarchie", utilisateur.getHierarchie());
         }
 
         return "/pages/authentification/login";
