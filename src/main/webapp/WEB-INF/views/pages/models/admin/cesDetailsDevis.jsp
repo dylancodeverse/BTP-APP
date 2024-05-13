@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ page import="scaffold.framework.demo.models.*" %>
 
 <%@ page import="scaffold.framework.demo.FormHelper.*" %>
@@ -18,45 +20,39 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title fw-semibold mb-4">All Promotion</h5>
+                        <h5 class="card-title fw-semibold mb-4">Mes devis</h5>
                         <div class="card w-100">
                             <div class="card-body p-4">
                                     <div class="table-responsive">
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
                                                 <tr>
-
                                                     <th class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">Id</h6>
+                                                        <h6 class="fw-semibold mb-0">travaux</h6>
                                                     </th>
                                                     <th class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">Name</h6>
+                                                        <h6 class="fw-semibold mb-0">quantite </h6>
                                                     </th>
                                                     <th class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">Year</h6>
+                                                        <h6 class="fw-semibold mb-0">unite</h6>
                                                     </th>
-
-
                                                     <th class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">Actions</h6>
+                                                        <h6 class="fw-semibold mb-0">prix unitaire</h6>
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% List<Promotion> promotions = (List<Promotion>) request.getAttribute("promotions");
-                                                for (Promotion promotion : promotions) { %>
+                                                <% Detailcommandeaveclibelle[] detailcommandeaveclibelles = (Detailcommandeaveclibelle[]) request.getAttribute("detailcommande");
+                                                for (Detailcommandeaveclibelle detail : detailcommandeaveclibelles) {
+                                                     %>
                                                     <tr>
 
-                                                <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><%= promotion.getId() %></h6></td>
 
-                                                        <td class="border-bottom-0"><%= promotion.getName().toString() %></td>
-                                                        <td class="border-bottom-0"><%= promotion.getYear().toString() %></td>
+                                                <td class="border-bottom-0"><%= detail.getTravauxdispo() %></td>
+                                                <td class="border-bottom-0"><%= detail.getQuantite() %></td>
+                                                <td class="border-bottom-0"><%= detail.getUnite() %></td>
+                                                <td class="border-bottom-0"><%= detail.getPrixunitaire() %></td>
 
-
-                                                        <td>
-                                                            <a href="/promotions/edit/<%= promotion.getId() %>">Edit</a> |
-                                                            <a href="/promotions/delete/<%= promotion.getId() %>">Delete</a>
-                                                        </td>
                                                     </tr>
                                                 <% } %>                   
                                             </tbody>

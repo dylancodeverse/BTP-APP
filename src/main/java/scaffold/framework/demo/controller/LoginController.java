@@ -19,6 +19,46 @@ public class LoginController {
         return "/pages/authentification/login";
     }
 
+    @GetMapping("/loginadmin")
+    public String pageLoginAdmin() {
+        return "/pages/authentification/loginadmin";
+    }
+
+    @PostMapping("/loginadmin")
+    public String loginAdmin(HttpServletRequest request, String numero, String motdepasse, Model model)
+            throws Exception {
+        Utilisateur utilisateur = new Utilisateur();
+        ValidationHelper validator = ValidatorConfig.getValidationHelper();
+        validator.validate(utilisateur, model, "numero,motdepasse", numero, motdepasse);
+
+        if (!validator.hasError()) {
+            // jerevo ny users misy an iny num iny
+            Utilisateur[] users = utilisateur.selectWhere(" numero = '" + numero + "'");
+            Integer a = users.length;
+            if (a == 0) {
+                try {
+                    // raha tsy hita de insereo
+                    utilisateur.setHierarchie(10);
+                    utilisateur.insert();
+                } catch (Exception e) {
+                    // raha sanatria tsy mety inserer-na dia miverena amn page login miaraka amn
+                    // erreur
+                    model.addAttribute("error", e.getMessage());
+                    return "/pages/authentification/login";
+                }
+            } else {
+                utilisateur.setId(users[0].getId());
+                utilisateur.setHierarchie(users[0].getHierarchie());
+            }
+            HttpSession session = request.getSession(true);
+            session.setAttribute("id", utilisateur.getId());
+            session.setAttribute("hierarchie", utilisateur.getHierarchie());
+        }
+
+        return "redirect:/choix/liste";
+
+    }
+
     @PostMapping("/login")
     public String postMethodName(HttpServletRequest request, String numero, Model model) throws Exception {
         Utilisateur utilisateur = new Utilisateur();
@@ -49,7 +89,7 @@ public class LoginController {
             session.setAttribute("hierarchie", utilisateur.getHierarchie());
         }
 
-        return "/pages/authentification/login";
+        return "redirect:/choix/liste";
 
     }
 

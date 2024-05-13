@@ -12,6 +12,8 @@ public class Utilisateur extends DynamicORM<Utilisateur> {
 
     Integer hierarchie;
 
+    String motdepasse;
+
     public String getId() {
         return id;
     }
@@ -34,5 +36,13 @@ public class Utilisateur extends DynamicORM<Utilisateur> {
 
     public void setHierarchie(Integer hierarchie) {
         this.hierarchie = hierarchie;
+    }
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
     }
 }
