@@ -1,5 +1,6 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import orm.DynamicORM;
@@ -9,6 +10,10 @@ public class Paiement extends DynamicORM<Paiement> {
     String commande;
     Double montant;
     Date datedepaiement;
+
+    public void setMontant(BigDecimal bigDecimal) throws Exception {
+        setMontant(bigDecimal.doubleValue());
+    }
 
     public String getId() {
         return id;
@@ -30,7 +35,9 @@ public class Paiement extends DynamicORM<Paiement> {
         return montant;
     }
 
-    public void setMontant(Double montant) {
+    public void setMontant(Double montant) throws Exception {
+        if (montant <= 0)
+            throw new Exception("Montant negatif non autorise");
         this.montant = montant;
     }
 
@@ -42,11 +49,17 @@ public class Paiement extends DynamicORM<Paiement> {
         this.datedepaiement = datedepaiement;
     }
 
-    public void setMontant(String montant2) {
+    public void setMontant(String montant2) throws NumberFormatException, Exception {
         setMontant(Double.parseDouble(montant2));
     }
 
-    public void setDatedepaiement(String datedepaiement2) {
-        setDatedepaiement(Date.valueOf(datedepaiement2));
+    public void setDatedepaiement(String datedepaiement2) throws Exception {
+        try {
+            setDatedepaiement(Date.valueOf(datedepaiement2));
+        } catch (Exception e) {
+            throw new Exception("Format de date pas normal");
+        }
+
     }
+
 }

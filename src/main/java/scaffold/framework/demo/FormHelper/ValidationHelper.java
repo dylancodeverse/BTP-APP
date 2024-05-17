@@ -84,7 +84,19 @@ public class ValidationHelper {
         return hasError;
     }
 
+    public void setHasError(Model model, String fields, String... args) {
+        String[] fieldsList = fields.split(",");
+        Integer i = 0;
+        for (String field : fieldsList) {
+            fillModelWithMapValue(model, 0, field);
+            model.addAttribute(inputValue(field), args[i]);
+            i++;
+        }
+        hasError = true;
+    }
+
     public void setHasError(boolean hasError) {
+
         this.hasError = hasError;
     }
 

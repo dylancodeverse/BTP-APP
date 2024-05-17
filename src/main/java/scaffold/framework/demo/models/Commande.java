@@ -1,5 +1,6 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Calendar;
 
@@ -21,6 +22,10 @@ public class Commande extends DynamicORM<Commande> {
     String typefinition;
     //
     Double elevation;
+
+    public void setElevation(BigDecimal bigDecimal) {
+        setElevation(bigDecimal.doubleValue());
+    }
 
     public String getLabel() {
         return getConstruction() + " debut en " + getDatedebutconstruction();

@@ -24,6 +24,12 @@ public class LoginController {
         return "/pages/authentification/loginadmin";
     }
 
+    @GetMapping("/deconnect")
+    public String deconnect(HttpServletRequest servletRequest) {
+        servletRequest.getSession().invalidate();
+        return "redirect:/login";
+    }
+
     @PostMapping("/loginadmin")
     public String loginAdmin(HttpServletRequest request, String numero, String motdepasse, Model model)
             throws Exception {

@@ -24,6 +24,8 @@
                         <div class="card w-100">
                             <div class="card-body p-4">
                                     <div class="table-responsive">
+                                        <h5> Montant total deja effectue : <%=  request.getAttribute("montant") + " AR" %></h5>
+
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
                                                 <tr>
@@ -49,6 +51,12 @@
                                                     <th class="border-bottom-0">
                                                         <h6 class="fw-semibold mb-0">Fin construction</h6>
                                                     </th>
+                                                    <th class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-0">Montant paye</h6>
+                                                    </th>
+                                                    <th class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-0">% par rapport montant total</h6>
+                                                    </th>
 
                                                     <th class="border-bottom-0">
                                                         <h6 class="fw-semibold mb-0">Actions</h6>
@@ -65,10 +73,13 @@
                                                 <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><%=  mondevis.getConstructionlabel() %></h6></td>
 
                                                 <td class="border-bottom-0"><%= mondevis.getTypefinitionlabel() %></td>
-                                                <td class="border-bottom-0"><%= mondevis.getMontanttotal() %></td>
+                                                <td class="border-bottom-0"><%= mondevis.getmontanttotal() %></td>
                                                 <td class="border-bottom-0"><%= mondevis.getDatedecommande() %></td>
                                                 <td class="border-bottom-0"><%= mondevis.getDatedebutconstruction() %></td>
                                                 <td class="border-bottom-0"><%= mondevis.getDatefinconstruction() %></td>
+                                                <td class="border-bottom-0"><%= mondevis.getmontantpaye() %></td>
+                                                <td class="border-bottom-0"><%= mondevis.getpourcentageelevation() %></td>
+
                                                 <td>
 
                                                     <a href="/admin/detaildevis/<%=mondevis.getId() %>">Voir detail</a>

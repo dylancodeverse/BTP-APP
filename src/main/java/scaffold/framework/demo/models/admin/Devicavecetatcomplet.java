@@ -14,6 +14,8 @@ public class Devicavecetatcomplet extends DynamicORM<Devicavecetatcomplet> {
     String construction;
     String typefinition;
 
+    
+
     public String getClient() {
         return client;
     }

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
+import scaffold.framework.demo.config.springAuth.annotations.Auth;
+import scaffold.framework.demo.config.springAuth.rules.RulesConf;
 import scaffold.framework.demo.models.Detailcommandeaveclibelle;
 import scaffold.framework.demo.models.V_devistotalavecelevationdejasurcentcomplet;
 
@@ -27,6 +29,7 @@ public class MesDevisController {
     DataSource dataSource;
 
     @GetMapping("/mesdevis")
+    @Auth(rule = "loginPresent", classSource = RulesConf.class)
     public String getDevis(HttpServletRequest request, Model model) throws Exception {
 
         String id = ((String) request.getSession().getAttribute("id"));
@@ -37,6 +40,7 @@ public class MesDevisController {
     }
 
     @GetMapping("/exportpdf/{id}")
+    @Auth(rule = "loginPresent", classSource = RulesConf.class)
     public ResponseEntity<byte[]> downloadPDF(@PathVariable("id") String idcommande) throws Exception {
         Connection connection = dataSource.getConnection();
         // Supposons que vous avez déjà le contenu du fichier PDF dans un byte[]

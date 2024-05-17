@@ -1,5 +1,7 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
+
 import orm.DynamicORM;
 
 public class Complet_constructionavecprix extends DynamicORM<Complet_constructionavecprix> {
@@ -8,6 +10,14 @@ public class Complet_constructionavecprix extends DynamicORM<Complet_constructio
     String construction;
     Double jourdetravaux;
     Double prix;
+
+    public void setJourdetravaux(BigDecimal bigDecimal) {
+        setJourdetravaux(bigDecimal.doubleValue());
+    }
+
+    public void setPrix(BigDecimal bigDecimal) {
+        setPrix(bigDecimal.doubleValue());
+    }
 
     public String getConstruction() {
         return construction;

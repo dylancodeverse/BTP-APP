@@ -1,5 +1,7 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
+
 import orm.DynamicORM;
 
 public class V_CONSTRUCTIONCOMPLET extends DynamicORM<V_CONSTRUCTIONCOMPLET> {
@@ -9,6 +11,18 @@ public class V_CONSTRUCTIONCOMPLET extends DynamicORM<V_CONSTRUCTIONCOMPLET> {
     Double quantitevrai;
     String travauxdispo;
     Double prixunitaire;
+
+    public void setPrixunitaire(BigDecimal bigDecimal) {
+        setPrixunitaire(bigDecimal.doubleValue());
+    }
+
+    public void setJourdetravaux(BigDecimal bigDecimal) {
+        setJourdetravaux(bigDecimal.doubleValue());
+    }
+
+    public void setQuantitevrai(BigDecimal bigDecimal) {
+        setQuantitevrai(bigDecimal.doubleValue());
+    }
 
     public String getConstructionid() {
         return constructionid;

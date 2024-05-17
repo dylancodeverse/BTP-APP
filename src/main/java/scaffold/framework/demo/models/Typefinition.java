@@ -1,5 +1,7 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
+
 import orm.DynamicORM;
 import orm.annotations.Id;
 
@@ -11,6 +13,14 @@ public class Typefinition extends DynamicORM<Typefinition> {
     String typefinition;
 
     Double elevation;
+
+    public void setElevation(BigDecimal bigDecimal) {
+        setElevation(bigDecimal.doubleValue());
+    }
+
+    public void setElevation(String elevation) {
+        setElevation(Double.parseDouble(elevation));
+    }
 
     public Double getNewPrixSansSurCent(Double initPrix) {
         return initPrix + initPrix * (elevation / 100);

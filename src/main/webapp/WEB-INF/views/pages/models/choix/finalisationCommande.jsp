@@ -33,7 +33,7 @@
                                                 
                                             <div class="col-md-4">
                                                 <h5 class="card-title fw-semibold mb-4"> Pour <%= typefinition.getTypefinition() %>  </h5>
-                                                  <h5>ce sera  <%= typefinition.getNewPrixSansSurCent(prix) %> AR</h5>  
+                                                  <h5>ce sera  <%= typefinition.getNewPrixDejaSurCent(prix) %> AR</h5>  
                                                 <div class="card">
                     
                                                 <img src="../assets/images/Construction-pana(1).svg" class="card-img-top" alt="...">

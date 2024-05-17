@@ -1,5 +1,6 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +20,14 @@ public class Detailcommandeaveclibelle extends DynamicORM<Detailcommandeaveclibe
     Double quantite;
     Double prixunitaire;
     String unite;
+
+    public void setPrixunitaire(BigDecimal bigDecimal) {
+        setPrixunitaire(bigDecimal.doubleValue());
+    }
+
+    public void setQuantite(BigDecimal bigDecimal) {
+        setQuantite(bigDecimal.doubleValue());
+    }
 
     public byte[] generatePDF(Connection connection, String idcommande) throws Exception {
         V_devistotalsanselevation devis = new V_devistotalsanselevation().selectWhere(connection, true,

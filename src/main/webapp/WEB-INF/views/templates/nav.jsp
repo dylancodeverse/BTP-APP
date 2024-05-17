@@ -49,14 +49,38 @@
                     <span class="hide-menu">Devis en cours</span>
                 </a>
             </li>
-            <li class="sidebar-item">
-            <a class="sidebar-link" href="/admin/histogramme" aria-expanded="false">
-                <span>
-                    <i class="ti ti-article"></i>
-                </span>
-                <span class="hide-menu">Histogramme</span>
-            </a>
-        </li>              
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/admin/histogramme" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Histogramme</span>
+                    </a>
+                </li>              
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/travauxdispo/travauxdispo" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Travaux Liste</span>
+                    </a>
+                </li> 
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/importdonnees" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Maison et travaux et devis </span>
+                    </a>
+                </li>              
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/importpaiement" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Paiements</span>
+                    </a>
+                </li>              
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

@@ -1,5 +1,6 @@
 package scaffold.framework.demo.models;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import orm.DynamicORM;
@@ -13,10 +14,36 @@ public class V_devistotalavecelevationdejasurcentcomplet
     Date datefinconstruction;
     Date datedecommande;
     String typefinition;
-    Double montanttotal;
     String constructionlabel;
     String typefinitionlabel;
     String clientlabel;
+    Double montanttotal;
+    Double montantpaye;
+    Double pourcentageelevation;
+
+    public String getmontanttotal() {
+        return new BigDecimal(getMontanttotal() + "").toPlainString();
+    }
+
+    public String getmontantpaye() {
+        return new BigDecimal(getMontanttotal() + "").toPlainString();
+    }
+
+    public String getpourcentageelevation() {
+        return new BigDecimal(getPourcentageelevation() + "").toPlainString();
+    }
+
+    public void setMontanttotal(BigDecimal bigDecimal) {
+        setMontanttotal(bigDecimal.doubleValue());
+    }
+
+    public void setMontantpaye(BigDecimal bigDecimal) {
+        setMontantpaye(bigDecimal.doubleValue());
+    }
+
+    public void setPourcentageelevation(BigDecimal bigDecimal) {
+        setPourcentageelevation(bigDecimal.doubleValue());
+    }
 
     public String getId() {
         return id;
@@ -104,5 +131,21 @@ public class V_devistotalavecelevationdejasurcentcomplet
 
     public void setClientlabel(String clientlabel) {
         this.clientlabel = clientlabel;
+    }
+
+    public Double getMontantpaye() {
+        return montantpaye;
+    }
+
+    public void setMontantpaye(Double montantpaye) {
+        this.montantpaye = montantpaye;
+    }
+
+    public Double getPourcentageelevation() {
+        return pourcentageelevation;
+    }
+
+    public void setPourcentageelevation(Double pourcentageelevation) {
+        this.pourcentageelevation = pourcentageelevation;
     }
 }
