@@ -82,7 +82,7 @@ public class PaiementImported {
     }
 
     public Date getDate_paiement() throws ParseException {
-        return DateUtils.convertStringToSQLDate(date_paiement, "dd/MM/YYYY");
+        return DateUtils.convertStringToSQLDate(date_paiement);
 
     }
 

@@ -144,7 +144,7 @@ public class DevisImported {
     public Date getDate_devis() throws ParseException {
         System.out.println(date_devis);
         System.out.println();
-        return DateUtils.convertStringToSQLDate(date_devis, "dd/MM/YYYY");
+        return DateUtils.convertStringToSQLDate(date_debut);
     }
 
     public void setDate_devis(String date_devis) {
@@ -152,7 +152,7 @@ public class DevisImported {
     }
 
     public Date getDate_debut() throws ParseException {
-        return DateUtils.convertStringToSQLDate(date_debut, "dd/MM/YYYY");
+        return DateUtils.convertStringToSQLDate(date_debut);
 
     }
 
