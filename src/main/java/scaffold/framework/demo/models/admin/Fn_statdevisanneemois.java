@@ -87,6 +87,10 @@ public class Fn_statdevisanneemois extends DynamicORM<Fn_statdevisanneemois> {
         }
     }
 
+    public void setMontanttotale(BigDecimal moBigDecimal) {
+        setMontanttotale(Double.valueOf(moBigDecimal.toPlainString()));
+    }
+
     public void setMontanttotale(Double montanttotale) {
         this.montanttotale = montanttotale;
     }
